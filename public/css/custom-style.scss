@@ -1,0 +1,44 @@
+@import './_auth.scss';
+$cartColor:rgb(17, 136, 151);
+$font_family:"Raleway";
+$linkColor:#fff;
+$hoverColor:#00ff00;
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html,
+body {
+    font-family: $font_family;
+    font-weight: bold;
+    background: linear-gradient(to left, #9c27b0, #8ecdff);
+}
+
+.cart {
+    color: $cartColor;
+}
+
+.brand {
+    font-family: $font_family;
+    font-weight: 400;
+    a {
+        color: $linkColor;
+        &:hover {
+            color: $hoverColor;
+        }
+    }
+}
+
+.main-menu li {
+    display: inline;
+    list-style: none;
+    margin-left: 7px;
+    a {
+        color: $linkColor;
+        text-decoration: none;
+    }
+    .user-name {
+        color: #00ff00;
+    }
+}
