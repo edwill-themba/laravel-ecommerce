@@ -30,5 +30,9 @@
        <script src="{{asset('js/all.js')}}"></script>
         <!-- app js  --> 
         <script src="{{asset('js/app.js')}}"></script>    
+        <!-- app stripe js -->
+        <script src="{{asset('js/app-stripe.js')}}"></script>
+        <!-- toogle js -->
+        <script src="{{asset('js/toggle.js')}}"></script>
     </body>
 </html>

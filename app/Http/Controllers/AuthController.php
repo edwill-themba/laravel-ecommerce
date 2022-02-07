@@ -40,6 +40,7 @@ class AuthController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->query = $request->input('query');
+        $user->user_type = "subscriber";
         $user->password = bcrypt($request->input('password'));
         $password_confirmation = $request->input('password_confirmation');
         $user->save();
@@ -57,10 +58,19 @@ class AuthController extends Controller
 
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
-            return redirect('/')->with('success_message','you have logged In successfully');
-        }else{
+            // get the user type
+            $user = User::select('user_type')
+                        ->where('email','=',$credentials['email'])
+                        ->get();
+            if($user[0]->user_type == "admin"){
+                return redirect('/product')->with('success_message','you have logged In successfully');
+            }else{
+                return redirect('/products')->with('success_message','you have logged In successfully');
+            }
+           }else{
             return redirect('/login_view')->with('error_message','Invalid login credentials');
         }
+        
     }
     /**
      * logs the user out

@@ -1,6 +1,7 @@
 @import './_auth.scss';
+@import './_stripe.scss';
 $cartColor:rgb(17, 136, 151);
-$font_family:"Raleway";
+$font_family:Poppins;
 $linkColor:#fff;
 $hoverColor:#00ff00;
 * {
@@ -12,21 +13,48 @@ html,
 body {
     font-family: $font_family;
     font-weight: bold;
-    background: linear-gradient(to left, #9c27b0, #8ecdff);
+    // background: linear-gradient(to left, #fff, #ccc);
+    background: #fff;
 }
 
 .cart {
     color: $cartColor;
 }
 
+.top-header {
+    background: linear-gradient('to right', #ccc, #c1c1c1);
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    .social-media {
+        margin-top: 13px;
+        margin-left: 0px;
+        ul li {
+            display: inline;
+            list-style: none;
+            margin-left: 5px;
+            a img {
+                width: 25px;
+                height: 25px;
+            }
+        }
+    }
+}
+
 .brand {
     font-family: $font_family;
-    font-weight: 400;
+    font-weight: bold;
+    margin-left: 30px;
     a {
         color: $linkColor;
         &:hover {
             color: $hoverColor;
         }
+    }
+    span {
+        font-weight: bold;
+        color: $hoverColor;
+        font-style: italic;
     }
 }
 
@@ -37,8 +65,172 @@ body {
     a {
         color: $linkColor;
         text-decoration: none;
+        font-weight: bold;
+        margin-top: 10px;
     }
     .user-name {
         color: #00ff00;
+    }
+}
+
+.contact {
+    color: $linkColor;
+    .email {
+        color: $hoverColor;
+    }
+    span {
+        font-weight: bold;
+    }
+}
+
+.toggle {
+    #checkbox {
+        display: none;
+    }
+    label .bars {
+        color: #fff;
+        display: none;
+    }
+    label .times {
+        color: #fff;
+        display: none;
+    }
+}
+
+.show-products {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-shrink: inherit;
+    div {
+        text-align: center;
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        width: 350px;
+        margin-left: 10px;
+        padding: 5px;
+        img {
+            height: 200px;
+            width: 200px;
+        }
+        h4 {
+            background: #111;
+            color: #fff;
+        }
+        a {
+            width: 100px;
+            color: $linkColor;
+            background: #111;
+            margin-top: 10px;
+            text-decoration: none;
+        }
+        p span {
+            font-weight: bold;
+        }
+        .btn-add-to-cart {
+            width: 100%;
+        }
+    }
+}
+
+.paginate {
+    text-align: center;
+    margin: 20px;
+    padding: 10px;
+}
+
+.hidden div {
+    display: none;
+}
+
+.proceed-add-to-cart {
+    margin: 20px;
+    text-align: center;
+    .prod-picture {
+        margin: 20px;
+        img {
+            height: 250px;
+            width: 250px;
+        }
+        h3 {
+            background: #111;
+            color: $linkColor;
+            padding-left: 10px;
+        }
+    }
+}
+
+.prod-info {
+    margin: 20px;
+    text-align: left;
+}
+
+.column {
+    width: 30px;
+}
+
+.show-case {
+    text-align: center;
+    .goal {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        div {
+            border: 1px solid #ccc;
+            width: 350px;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+    }
+}
+
+.final-payment {
+    margin: 30px 10px;
+    padding: 20px;
+}
+
+.form-row {
+    margin-bottom: 10px;
+}
+
+@media(max-width:960px) {
+    .brand {
+        margin-left: 20px;
+        a {
+            font-size: 13px;
+        }
+    }
+    .main-menu {
+        left: -100%;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 100px;
+        background: #111;
+        margin-top: 0px;
+    }
+    .main-menu.active {
+        left: 0;
+    }
+    .main-menu.active li {
+        display: block;
+        margin-top: 30px;
+        margin-left: 170px;
+    }
+    .contact {
+        display: none;
+    }
+    .toggle label .bars {
+        display: block;
+        margin-right: 10px;
+    }
+    .toggle #checkbox:checked~label .bars {
+        display: none;
+    }
+    .toggle #checkbox:checked~label .times {
+        display: block;
+        margin-right: 10px;
     }
 }
